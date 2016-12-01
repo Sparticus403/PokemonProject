@@ -45,6 +45,7 @@ public class PokemonPanel extends JPanel
 		this.combatField = new JTextField(5);
 		this.speedField = new JTextField(5);
 		this.nameField = new JTextField(5);
+		this.numberField = new JTextField(5);
 		this.advancedArea = new JTextArea(10,25);
 		
 		setupPanel();
@@ -75,38 +76,41 @@ public class PokemonPanel extends JPanel
 		this.add(speedField);
 		this.add(nameField);
 		this.add(advancedArea);
+		this.add(numberField);
 	}
 	
 	private void setupLayout()
 	{
-		baseLayout.putConstraint(SpringLayout.NORTH, pokemonLabel, 10, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, pokemonLabel, 320, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.WEST, healthLabel, 0, SpringLayout.WEST, pokemonLabel);
-		baseLayout.putConstraint(SpringLayout.SOUTH, combatLabel, -461, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, healthLabel, 28, SpringLayout.SOUTH, combatLabel);
-		baseLayout.putConstraint(SpringLayout.WEST, combatLabel, 0, SpringLayout.WEST, pokemonLabel);
-		baseLayout.putConstraint(SpringLayout.WEST, speedLabel, 0, SpringLayout.WEST, pokemonLabel);
-		baseLayout.putConstraint(SpringLayout.SOUTH, speedLabel, -371, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, nameLabel, 16, SpringLayout.SOUTH, pokemonLabel);
-		baseLayout.putConstraint(SpringLayout.WEST, nameLabel, 0, SpringLayout.WEST, pokemonLabel);
-		baseLayout.putConstraint(SpringLayout.NORTH, numberLabel, 4, SpringLayout.NORTH, pokedexSelector);
-		baseLayout.putConstraint(SpringLayout.WEST, numberLabel, 0, SpringLayout.WEST, updateButton);
-		baseLayout.putConstraint(SpringLayout.NORTH, advancedLabel, 82, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, pokedexSelector, 17, SpringLayout.EAST, advancedLabel);
-		baseLayout.putConstraint(SpringLayout.WEST, advancedLabel, 10, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, healthField, -6, SpringLayout.NORTH, healthLabel);
-		baseLayout.putConstraint(SpringLayout.WEST, healthField, 22, SpringLayout.EAST, healthLabel);
-		baseLayout.putConstraint(SpringLayout.NORTH, combatField, -6, SpringLayout.NORTH, combatLabel);
-		baseLayout.putConstraint(SpringLayout.EAST, combatField, 0, SpringLayout.EAST, healthField);
-		baseLayout.putConstraint(SpringLayout.NORTH, updateButton, 24, SpringLayout.SOUTH, speedField);
-		baseLayout.putConstraint(SpringLayout.NORTH, speedField, 207, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, speedField, 0, SpringLayout.EAST, healthField);
-		baseLayout.putConstraint(SpringLayout.NORTH, nameField, 6, SpringLayout.SOUTH, pokemonLabel);
-		baseLayout.putConstraint(SpringLayout.EAST, nameField, 0, SpringLayout.EAST, healthField);
-		baseLayout.putConstraint(SpringLayout.SOUTH, pokedexSelector, -6, SpringLayout.NORTH, advancedArea);
-		baseLayout.putConstraint(SpringLayout.WEST, updateButton, 8, SpringLayout.EAST, advancedArea);
-		baseLayout.putConstraint(SpringLayout.NORTH, advancedArea, 6, SpringLayout.SOUTH, advancedLabel);
-		baseLayout.putConstraint(SpringLayout.WEST, advancedArea, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, pokedexSelector, -4, SpringLayout.NORTH, pokemonLabel);
+		baseLayout.putConstraint(SpringLayout.WEST, pokedexSelector, 36, SpringLayout.EAST, pokemonLabel);
+		baseLayout.putConstraint(SpringLayout.NORTH, pokemonLabel, 75, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, pokemonLabel, 28, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, healthLabel, 0, SpringLayout.EAST, combatLabel);
+		baseLayout.putConstraint(SpringLayout.NORTH, combatLabel, 17, SpringLayout.SOUTH, nameLabel);
+		baseLayout.putConstraint(SpringLayout.WEST, speedLabel, 0, SpringLayout.WEST, nameLabel);
+		baseLayout.putConstraint(SpringLayout.EAST, nameLabel, 0, SpringLayout.EAST, combatLabel);
+		baseLayout.putConstraint(SpringLayout.EAST, numberLabel, 0, SpringLayout.EAST, healthLabel);
+		baseLayout.putConstraint(SpringLayout.SOUTH, numberLabel, -12, SpringLayout.NORTH, advancedLabel);
+		baseLayout.putConstraint(SpringLayout.WEST, advancedLabel, 0, SpringLayout.WEST, updateButton);
+		baseLayout.putConstraint(SpringLayout.NORTH, healthLabel, 6, SpringLayout.NORTH, healthField);
+		baseLayout.putConstraint(SpringLayout.NORTH, healthField, 6, SpringLayout.SOUTH, combatField);
+		baseLayout.putConstraint(SpringLayout.WEST, healthField, 0, SpringLayout.WEST, combatField);
+		baseLayout.putConstraint(SpringLayout.EAST, combatLabel, -6, SpringLayout.WEST, combatField);
+		baseLayout.putConstraint(SpringLayout.NORTH, speedLabel, 6, SpringLayout.NORTH, speedField);
+		baseLayout.putConstraint(SpringLayout.NORTH, speedField, 6, SpringLayout.SOUTH, healthField);
+		baseLayout.putConstraint(SpringLayout.WEST, speedField, 0, SpringLayout.WEST, healthField);
+		baseLayout.putConstraint(SpringLayout.NORTH, combatField, 5, SpringLayout.SOUTH, nameField);
+		baseLayout.putConstraint(SpringLayout.NORTH, nameLabel, 6, SpringLayout.NORTH, nameField);
+		baseLayout.putConstraint(SpringLayout.WEST, combatField, 0, SpringLayout.WEST, nameField);
+		baseLayout.putConstraint(SpringLayout.NORTH, nameField, 36, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, nameField, -135, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, advancedArea, 228, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, advancedLabel, -6, SpringLayout.NORTH, advancedArea);
+		baseLayout.putConstraint(SpringLayout.NORTH, updateButton, 22, SpringLayout.SOUTH, advancedArea);
+		baseLayout.putConstraint(SpringLayout.WEST, updateButton, 0, SpringLayout.WEST, advancedArea);
+		baseLayout.putConstraint(SpringLayout.EAST, advancedArea, -69, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, numberField, -6, SpringLayout.NORTH, numberLabel);
+		baseLayout.putConstraint(SpringLayout.EAST, numberField, 0, SpringLayout.EAST, healthField);
 	}
 	
 	private void setupListeners()
