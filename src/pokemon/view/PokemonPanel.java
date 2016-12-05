@@ -115,6 +115,34 @@ public class PokemonPanel extends JPanel
 	
 	private void setupListeners()
 	{
+		pokedexSelector.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				int selected = pokedexSelector.getSelectedIndex();
+				nameField.setText(baseController.getPokedex().get(selected).getName());
+				numberField.setText(baseController.getPokedex().get(selected).getNumber() + "");
+				combatField.setText(baseController.getPokedex().get(selected).getAttackPoints() + "");
+				speedField.setText(baseController.getPokedex().get(selected).getSpeed() + "");
+				healthField.setText(baseController.getPokedex().get(selected).getHealthPoints() + "");
+				advancedArea.setText(baseController.getPokedex().get(selected).getPokemonInformation()
+						+ "\n" + baseController.getPokedex().get(selected).getPokemonTypes());
+			}
+		});
+	}
+	private void changeColorBasedOnData(String data)
+	{
 		
+	}
+	
+	private void changeImageDisplay(String name)
+	{
+		String path = "/pokemon/view/images";
+		String defaultName = "Pokeball";
+		String extension = ".svg";
+		try
+		{
+			
+		}
 	}
 }
