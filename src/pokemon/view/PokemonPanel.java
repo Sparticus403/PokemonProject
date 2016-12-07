@@ -61,6 +61,9 @@ public class PokemonPanel extends JPanel
 		advancedArea.setEditable(false);
 		advancedArea.setWrapStyleWord(true);
 		advancedArea.setLineWrap(true);
+		
+		pokemonLabel.setVerticalTextPosition(JLabel.BOTTOM);
+		pokemonLabel.setHorizontalTextPosition(textPosition);
 		this.setBackground(Color.lightGray);
 		this.add(updateButton);
 		this.add(pokedexSelector);
@@ -127,12 +130,16 @@ public class PokemonPanel extends JPanel
 				healthField.setText(baseController.getPokedex().get(selected).getHealthPoints() + "");
 				advancedArea.setText(baseController.getPokedex().get(selected).getPokemonInformation()
 						+ "\n" + baseController.getPokedex().get(selected).getPokemonTypes());
+				changeColorBasedOnData(baseController.getPokedex().get(selected).getPokemonTypes());
 			}
 		});
 	}
 	private void changeColorBasedOnData(String data)
 	{
-		
+		if(data.contains("Psychic"))
+		{
+			this.setBackground(Color.YELLOW);
+		}
 	}
 	
 	private void changeImageDisplay(String name)
@@ -142,7 +149,26 @@ public class PokemonPanel extends JPanel
 		String extension = ".svg";
 		try
 		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
+		}
+		catch(NullPointerException missingFile)
+		{
 			
+		}
+		pokemonLabel.setIcon(pokemonIcon);
+		repaint();
+	}
+	
+	private boolean isValidName(String name)
+	{
+		boolean isValid = false;
+		if(name != null && name.trim().length() > 2)
+		{
+			isValid = true;
+		}
+		else
+		{
+			JOptionPane.showMessageDialog("Insert a valid name");
 		}
 	}
 }

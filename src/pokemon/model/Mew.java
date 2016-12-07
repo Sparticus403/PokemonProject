@@ -4,7 +4,17 @@ public class Mew extends Psychic
 {
 	public Mew()
 	{
-		super();
+		super("Mew", 151);
+	}
+	
+	public Mew(String name)
+	{
+		super(name, 151);
+	}
+	
+	public int synchronize()
+	{
+		
 	}
 
 }

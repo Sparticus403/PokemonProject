@@ -8,6 +8,7 @@ public class Pokemon
 	private int number;
 	private String name;
 	
+	
 	public void setName(String name)
 	{
 		this.name = name;
@@ -19,6 +20,26 @@ public class Pokemon
 		this.number = number;
 	}
 
+	public String getPokemonTypes()
+	{
+		String pokemonTypes = "This Pokemon has the following types:\n";
+		Class<?> [] types = getClass().getInterfaces();
+		String [] pokeTypes = new String[types.length];
+		for(int index = 0; index < types.length; index++)
+		{
+			String temp = types[index].getCanonicalName();
+			pokeTypes[index] = temp;
+		}
+		
+		for(String current : pokeTypes)
+		{
+			String temp = current.replace(this.getClass().getPackage().getName() + ".", "");
+			pokemonTypes += temp + "\n";
+		}
+		
+		return pokemonTypes;
+	}
+	
 	public int getHealthPoints()
 	{
 		return healthPoints;
