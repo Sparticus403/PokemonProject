@@ -1,6 +1,8 @@
 package pokemon.controller;
 
 import javax.swing.*;
+
+import pokemon.model.Pokemon;
 import pokemon.view.*;
 import java.util.ArrayList;
 
@@ -41,7 +43,11 @@ public class PokemonController
 	
 	public void updateSelected(int index, String name, int combat, int health, double speed)
 	{
-		
+		Pokemon current = pokedex.get(index);
+		current.setName(name);
+		current.setAttackPoints(combat);
+		current.setSpeed(speed);
+		current.setHealthPoints(health);
 	}
 	
 
